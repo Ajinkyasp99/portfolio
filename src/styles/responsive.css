@@ -1,0 +1,181 @@
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — Mobile-First Breakpoints
+   ═══════════════════════════════════════════════════ */
+
+/* ── Tablet: 1024px ── */
+@media (max-width: 1024px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__burger {
+    display: flex;
+  }
+
+  .skills__bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skill-card--large,
+  .skill-card--wide {
+    grid-column: span 2;
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects__grid .project-card:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* ── Mobile large: 768px ── */
+@media (max-width: 768px) {
+  .hero__terminal {
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__card--main {
+    grid-column: 1;
+  }
+
+  .about__card--stats {
+    grid-column: 1;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills__bento {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card--large,
+  .skill-card--wide {
+    grid-column: span 1;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__grid .project-card:last-child {
+    grid-column: span 1;
+  }
+
+  .timeline {
+    padding-left: 36px;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline__dot {
+    left: -34px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline__content {
+    padding: var(--space-lg);
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+}
+
+/* ── Mobile small: 480px ── */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  .hero__content {
+    padding: 0 1rem;
+  }
+
+  .hero__terminal {
+    min-width: auto;
+  }
+
+  .terminal__body {
+    padding: 12px 14px;
+  }
+
+  .terminal__line {
+    font-size: 0.75rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .about__card {
+    padding: var(--space-lg);
+  }
+
+  .project-card {
+    padding: var(--space-lg);
+  }
+
+  .contact-link__value {
+    font-size: var(--fs-xs);
+  }
+}
+
+/* ── Reduce motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .terminal__cursor {
+    animation: none;
+  }
+}
+
+/* ── Hide custom cursor on touch devices ── */
+@media (hover: none) {
+  body { cursor: auto; }
+  .custom-cursor,
+  .custom-cursor-follower {
+    display: none !important;
+  }
+  button, a, input, textarea {
+    cursor: auto;
+  }
+}
