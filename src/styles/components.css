@@ -197,7 +197,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible; /* Prevent clipping content */
+  padding-top: var(--navbar-height);
+  padding-bottom: var(--space-4xl); /* Ensure bottom buttons are clear */
 }
 
 #hero-canvas {
@@ -290,9 +292,9 @@
 .hero__title {
   font-size: var(--fs-hero);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.0; /* More compact lines */
   letter-spacing: -0.04em;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .hero__title-line {

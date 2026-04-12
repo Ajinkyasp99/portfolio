@@ -1,8 +1,4 @@
-/**
- * navbar.js — Navbar interactions
- * Handles scroll-based style changes, active link tracking,
- * mobile menu toggle, and smooth scroll anchor linking.
- */
+import { gsap } from 'gsap';
 
 export function initNavbar() {
   const navbar = document.getElementById('navbar');
@@ -52,9 +48,17 @@ export function initNavbar() {
 
   // ── Mobile menu ──
   burger.addEventListener('click', () => {
+    const isActive = mobileMenu.classList.toggle('active');
     burger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    document.body.style.overflow = isActive ? 'hidden' : '';
+
+    if (isActive) {
+      // Entrance animation
+      gsap.fromTo('.mobile-link', 
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out', delay: 0.2 }
+      );
+    }
   });
 
   mobileLinks.forEach((link) => {
@@ -62,6 +66,9 @@ export function initNavbar() {
       burger.classList.remove('active');
       mobileMenu.classList.remove('active');
       document.body.style.overflow = '';
+      
+      // Reset animation states
+      gsap.set('.mobile-link', { opacity: 0, y: 30 });
     });
   });
 

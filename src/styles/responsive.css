@@ -117,23 +117,24 @@
 /* ── Mobile small: 480px ── */
 @media (max-width: 480px) {
   :root {
-    --container-padding: 1rem;
+    --container-padding: 1.25rem;
   }
 
   .hero__content {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
   .hero__terminal {
     min-width: auto;
+    margin-bottom: var(--space-xl);
   }
 
   .terminal__body {
-    padding: 12px 14px;
+    padding: 14px 16px;
   }
 
   .terminal__line {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
   .stat-grid {
@@ -142,15 +143,47 @@
   }
 
   .about__card {
-    padding: var(--space-lg);
+    padding: var(--space-xl);
+  }
+
+  .about__card-row {
+    gap: var(--space-lg);
+  }
+
+  .about__photo {
+    width: 100px;
+    height: 100px;
   }
 
   .project-card {
-    padding: var(--space-lg);
+    padding: var(--space-xl);
+  }
+
+  .contact-link {
+    padding: var(--space-md);
   }
 
   .contact-link__value {
-    font-size: var(--fs-xs);
+    font-size: 0.8rem;
+  }
+}
+
+/* ── Tiny screens: 360px ── */
+@media (max-width: 360px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
+
+  .terminal__line {
+    font-size: 0.7rem;
+  }
+
+  .about__card {
+    padding: var(--space-lg);
   }
 }
 
