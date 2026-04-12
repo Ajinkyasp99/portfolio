@@ -11,7 +11,7 @@ export function initTyping() {
 
   const commands = [
     'cat about.md',
-    'echo "3+ years building scalable backends"',
+    'echo "4+ years building scalable backends"',
     'docker swarm init --advertise-addr manager',
     'python manage.py runserver 0.0.0.0:8000',
     'kafka-console-consumer --topic alerts',

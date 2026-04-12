@@ -227,7 +227,9 @@
   overflow: hidden;
   margin-bottom: var(--space-2xl);
   text-align: left;
-  min-width: 380px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 0; /* Reset fixed width for mobile */
   backdrop-filter: blur(10px);
 }
 

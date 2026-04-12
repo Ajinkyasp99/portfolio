@@ -60,11 +60,11 @@
     grid-template-columns: 1fr;
   }
 
-  .about__card--main {
+  .about__grid .about__card--main {
     grid-column: 1;
   }
 
-  .about__card--stats {
+  .about__grid .about__card--stats {
     grid-column: 1;
   }
 
@@ -76,8 +76,8 @@
     grid-template-columns: 1fr;
   }
 
-  .skill-card--large,
-  .skill-card--wide {
+  .skills__bento .skill-card--large,
+  .skills__bento .skill-card--wide {
     grid-column: span 1;
   }
 
@@ -160,11 +160,21 @@
   }
 
   .contact-link {
-    padding: var(--space-md);
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .contact-link__icon {
+    margin-bottom: var(--space-xs);
   }
 
   .contact-link__value {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.4;
   }
 }
 
@@ -175,7 +185,7 @@
   }
 
   .hero__title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .terminal__line {
