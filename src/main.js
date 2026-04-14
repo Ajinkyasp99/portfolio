@@ -11,11 +11,10 @@ import './styles/animations.css';
 import './styles/responsive.css';
 
 // ── Modules ──
-import { initParticles } from './js/particles.js';
 import { initAnimations, initMagneticButtons } from './js/animations.js';
-import { initTyping } from './js/typing.js';
 import { initNavbar } from './js/navbar.js';
 import { initCursor } from './js/cursor.js';
+import { initTyping } from './js/typing.js';
 import Lenis from 'lenis';
 import VanillaTilt from 'vanilla-tilt';
 
@@ -87,19 +86,10 @@ function initDynamicExperience() {
 document.addEventListener('DOMContentLoaded', () => {
   // Core
   initNavbar();
-  initTyping();
   initCursor();
+  initTyping();
   initDynamicExperience();
-
-  // WebGL particles (with fallback)
-  try {
-    initParticles();
-  } catch (err) {
-    console.warn('WebGL particles failed to initialize:', err);
-    // Fallback: just show a gradient background
-    const canvas = document.getElementById('hero-canvas');
-    if (canvas) canvas.style.display = 'none';
-  }
+  initScrollProgress();
 
   // GSAP animations
   initAnimations();
@@ -107,4 +97,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tilt effect
   initTilt();
+
+  // Skill tag proficiency tooltip
+  initSkillTooltips();
 });
+
+// ── Scroll Progress Bar ──
+function initScrollProgress() {
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  progressBar.style.width = '0%';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = `${progress}%`;
+  }, { passive: true });
+}
+
+// ── Skill Tag Proficiency Tooltip ──
+function initSkillTooltips() {
+  const tags = document.querySelectorAll('.skill-tag[data-proficiency]');
+  tags.forEach((tag) => {
+    const proficiency = tag.dataset.proficiency;
+    tag.style.setProperty('--tag-proficiency', `${proficiency}%`);
+
+    // Add a subtle bottom border that fills based on proficiency
+    const fill = document.createElement('span');
+    fill.className = 'skill-tag__fill';
+    fill.style.width = '0%';
+    tag.appendChild(fill);
+  });
+}

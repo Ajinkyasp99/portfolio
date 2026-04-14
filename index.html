@@ -28,10 +28,6 @@
         <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
         <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
       </ul>
-      <!-- <a href="/Ajinkya_Resume.pdf" target="_blank" class="navbar__cta magnetic-btn" id="nav-resume-btn">
-        <span>Resume</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      </a> -->
       <button class="navbar__burger" id="nav-burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -46,54 +42,53 @@
       <li><a href="#experience" class="mobile-link">Experience</a></li>
       <li><a href="#projects" class="mobile-link">Projects</a></li>
       <li><a href="#contact" class="mobile-link">Contact</a></li>
-      <li><a href="/Ajinkya_Resume.pdf" target="_blank" class="mobile-link mobile-link--cta">Download Resume</a></li>
     </ul>
   </div>
 
   <!-- ═══════════════════ HERO ═══════════════════ -->
   <section id="hero" class="hero">
-    <canvas id="hero-canvas"></canvas>
+    <div class="hero__mesh" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="hero__terminal">
         <div class="terminal__header">
-          <span class="terminal__dot terminal__dot--red"></span>
-          <span class="terminal__dot terminal__dot--yellow"></span>
-          <span class="terminal__dot terminal__dot--green"></span>
+          <div class="terminal__dots">
+            <span class="terminal__dot terminal__dot--red"></span>
+            <span class="terminal__dot terminal__dot--yellow"></span>
+            <span class="terminal__dot terminal__dot--green"></span>
+          </div>
           <span class="terminal__title">ajinkya@portfolio:~</span>
         </div>
         <div class="terminal__body">
           <div class="terminal__line">
-            <span class="terminal__prompt">$</span>
-            <span class="terminal__text" id="typing-text"></span>
-            <span class="terminal__cursor" id="cursor">▊</span>
+            <span class="terminal__prompt">➜</span>
+            <span class="terminal__path">~</span>
+            <span id="typing-text" class="terminal__typing"></span>
+            <span id="cursor" class="terminal__cursor">█</span>
           </div>
         </div>
       </div>
-      <h1 class="hero__title" id="hero-title">
-        <span class="hero__title-line">Building Robust</span>
-        <span class="hero__title-line hero__title-line--accent">Backends & Intelligent</span>
-        <span class="hero__title-line">Systems<span class="hero__dot">.</span></span>
+      <p class="hero__greeting" id="hero-greeting">Hey, I'm</p>
+      <h1 class="hero__name" id="hero-name">
+        <span class="hero__name-line">Ajinkya</span>
+        <span class="hero__name-line hero__name-line--accent">Patil<span class="hero__dot">.</span></span>
       </h1>
-      <p class="hero__subtitle" id="hero-subtitle">
-        Software Developer specializing in <span class="text-gradient">Python</span>, 
-        <span class="text-gradient">distributed systems</span>, and 
-        <span class="text-gradient">local AI infrastructure</span>.
-      </p>
+      <div class="hero__accent-line" id="hero-accent-line"></div>
+      <div class="hero__role-wrapper" id="hero-roles">
+        <span class="hero__role-prefix">I build</span>
+        <span class="hero__role" id="hero-role">Scalable Backend Systems</span>
+      </div>
+      <div class="hero__quick-stats" id="hero-stats">
+        <span class="hero__stat"><strong>4+</strong> Years</span>
+        <span class="hero__stat-divider">/</span>
+        <span class="hero__stat"><strong>Backend</strong> Engineer</span>
+        <span class="hero__stat-divider">/</span>
+        <span class="hero__stat"><strong>Linux</strong> Native</span>
+      </div>
       <div class="hero__actions" id="hero-actions">
         <a href="#projects" class="btn btn--primary magnetic-btn">
           <span>Explore My Work</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <!-- <a href="/Ajinkya_Resume.pdf" target="_blank" class="btn btn--secondary magnetic-btn">
-          <span>Download Resume</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a> -->
-      </div>
-      <div class="hero__scroll-indicator" id="scroll-indicator">
-        <div class="scroll-mouse">
-          <div class="scroll-mouse__wheel"></div>
-        </div>
-        <span>Scroll to explore</span>
       </div>
     </div>
   </section>
@@ -173,22 +168,25 @@
         <div class="section__line"></div>
       </div>
       <div class="skills__bento">
-        <!-- Row 1: 2 + 1 -->
         <!-- Backend & Core -->
         <div class="skill-card skill-card--large bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <h3>Backend & Core</h3>
+            <div class="skill-card__title-group">
+              <h3>Backend & Core</h3>
+              <span class="skill-card__level">Expert</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag" data-proficiency="95">Python</span>
+            <span class="skill-tag" data-proficiency="80">JavaScript</span>
+            <span class="skill-tag" data-proficiency="72">TypeScript</span>
+            <span class="skill-tag" data-proficiency="92">Django</span>
+            <span class="skill-tag" data-proficiency="75">Flask</span>
+            <span class="skill-tag" data-proficiency="70">Node.js</span>
           </div>
           <div class="skill-card__bar">
             <div class="skill-bar" style="--bar-width: 95%"></div>
@@ -197,41 +195,48 @@
 
         <!-- Data & Streaming -->
         <div class="skill-card bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon skill-card__icon--cyan">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
             </div>
-            <h3>Data & Streaming</h3>
+            <div class="skill-card__title-group">
+              <h3>Data & Streaming</h3>
+              <span class="skill-card__level skill-card__level--advanced">Advanced</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">InfluxDB</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">Kafka</span>
-            <span class="skill-tag">MQTT</span>
+            <span class="skill-tag" data-proficiency="90">PostgreSQL</span>
+            <span class="skill-tag" data-proficiency="78">InfluxDB</span>
+            <span class="skill-tag" data-proficiency="72">MongoDB</span>
+            <span class="skill-tag" data-proficiency="85">Redis</span>
+            <span class="skill-tag" data-proficiency="82">Kafka</span>
+            <span class="skill-tag" data-proficiency="70">MQTT</span>
           </div>
           <div class="skill-card__bar">
             <div class="skill-bar" style="--bar-width: 90%"></div>
           </div>
         </div>
 
-        <!-- Row 2: 1 + 1 + 1 -->
         <!-- DevOps & Cloud -->
         <div class="skill-card bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon skill-card__icon--purple">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
             </div>
-            <h3>DevOps & Cloud</h3>
+            <div class="skill-card__title-group">
+              <h3>DevOps & Cloud</h3>
+              <span class="skill-card__level skill-card__level--proficient">Proficient</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Docker Swarm</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">AWS EC2</span>
-            <span class="skill-tag">AWS S3</span>
-            <span class="skill-tag">AWS RDS</span>
+            <span class="skill-tag" data-proficiency="88">Docker</span>
+            <span class="skill-tag" data-proficiency="82">Docker Swarm</span>
+            <span class="skill-tag" data-proficiency="78">CI/CD</span>
+            <span class="skill-tag" data-proficiency="75">AWS EC2</span>
+            <span class="skill-tag" data-proficiency="72">AWS S3</span>
+            <span class="skill-tag" data-proficiency="70">AWS RDS</span>
           </div>
           <div class="skill-card__bar">
             <div class="skill-bar" style="--bar-width: 82%"></div>
@@ -240,49 +245,60 @@
 
         <!-- Task Queues -->
         <div class="skill-card skill-card--small bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon skill-card__icon--green">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
-            <h3>Task Queues</h3>
+            <div class="skill-card__title-group">
+              <h3>Task Queues</h3>
+              <span class="skill-card__level skill-card__level--advanced">Advanced</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">Celery</span>
-            <span class="skill-tag">Celery Beat</span>
+            <span class="skill-tag" data-proficiency="88">Celery</span>
+            <span class="skill-tag" data-proficiency="80">Celery Beat</span>
           </div>
         </div>
 
-        <!-- Others / Architecture -->
+        <!-- Architecture -->
         <div class="skill-card skill-card--small skill-card--architecture bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon skill-card__icon--orange">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </div>
-            <h3>Architecture</h3>
+            <div class="skill-card__title-group">
+              <h3>Architecture</h3>
+              <span class="skill-card__level skill-card__level--advanced">Advanced</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">WebSockets</span>
-            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag" data-proficiency="90">REST APIs</span>
+            <span class="skill-tag" data-proficiency="82">WebSockets</span>
+            <span class="skill-tag" data-proficiency="85">Microservices</span>
           </div>
         </div>
 
-        <!-- Row 3: 3 -->
         <!-- AI & Environment -->
         <div class="skill-card skill-card--wide bento-item" data-tilt>
+          <div class="skill-card__glow-line"></div>
           <div class="skill-card__header">
             <div class="skill-card__icon skill-card__icon--pink">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.57-3.25 3.93a1 1 0 0 0-.75.97V13"/><circle cx="12" cy="17" r="3"/><path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M19 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M5 8v3a4 4 0 0 0 4 4"/><path d="M19 8v3a4 4 0 0 1-4 4"/></svg>
             </div>
-            <h3>AI & Environment</h3>
+            <div class="skill-card__title-group">
+              <h3>AI & Environment</h3>
+              <span class="skill-card__level skill-card__level--proficient">Proficient</span>
+            </div>
           </div>
           <div class="skill-card__tags">
-            <span class="skill-tag">Ollama</span>
-            <span class="skill-tag">Hugging Face</span>
-            <span class="skill-tag">Qwen Models</span>
-            <span class="skill-tag">VRAM Optimization</span>
-            <span class="skill-tag">Ubuntu Linux</span>
-            <span class="skill-tag">Telegraf</span>
+            <span class="skill-tag" data-proficiency="80">Ollama</span>
+            <span class="skill-tag" data-proficiency="75">Hugging Face</span>
+            <span class="skill-tag" data-proficiency="72">Qwen Models</span>
+            <span class="skill-tag" data-proficiency="68">VRAM Optimization</span>
+            <span class="skill-tag" data-proficiency="90">Ubuntu Linux</span>
+            <span class="skill-tag" data-proficiency="78">Telegraf</span>
           </div>
           <div class="skill-card__bar">
             <div class="skill-bar" style="--bar-width: 78%"></div>
@@ -307,19 +323,42 @@
             <div class="timeline__pulse"></div>
           </div>
           <div class="timeline__content">
+            <div class="timeline__badge">Current Role</div>
             <div class="timeline__meta">
               <span class="timeline__date">May 2022 — Present</span>
-              <span class="timeline__location">Pune</span>
+              <span class="timeline__location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Pune
+              </span>
             </div>
             <h3 class="timeline__role">Software Development Engineer 2</h3>
             <h4 class="timeline__company">CarbonMinus <span>(formerly Enerlly)</span></h4>
-            <ul class="timeline__details">
-              <li>Deployed <strong>Docker Swarm</strong> multi-node setups for service orchestration, ensuring scalability, redundancy and availability.</li>
-              <li>Developed and maintained <strong>REST APIs</strong> using Python & JavaScript, integrated <strong>WebSockets</strong> for real-time alerts.</li>
-              <li>Configured and managed <strong>Apache Kafka</strong> clusters for real-time data exchange.</li>
-              <li>Optimized performance with <strong>Redis</strong> for in-memory data storage and retrieval.</li>
-              <li>Used <strong>Celery</strong> for background data processing in report generation.</li>
-            </ul>
+            <div class="timeline__achievements">
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div>
+                  <strong>Infrastructure</strong> — Deployed Docker Swarm multi-node setups for service orchestration, ensuring scalability & availability
+                </div>
+              </div>
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                  <strong>Real-time Systems</strong> — Built REST APIs with WebSockets for live alerts & Kafka for data streaming
+                </div>
+              </div>
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <div>
+                  <strong>Performance</strong> — Optimized with Redis caching & Celery background processing
+                </div>
+              </div>
+            </div>
             <div class="timeline__tech">
               <span>Python</span><span>Django</span><span>Docker Swarm</span><span>Kafka</span><span>Redis</span><span>PostgreSQL</span><span>Node.js</span>
             </div>
@@ -332,17 +371,39 @@
           <div class="timeline__content">
             <div class="timeline__meta">
               <span class="timeline__date">Feb 2022 — Apr 2022</span>
-              <span class="timeline__location">Pune</span>
+              <span class="timeline__location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Pune
+              </span>
             </div>
             <h3 class="timeline__role">Software Developer Intern</h3>
             <h4 class="timeline__company">CarbonMinus <span>(formerly Enerlly)</span></h4>
-            <ul class="timeline__details">
-              <li>Learned <strong>Django</strong> from scratch and built scalable applications with best practices.</li>
-              <li>Refactored existing code for improved efficiency, readability, and maintainability.</li>
-              <li>Developed unit tests and created a <strong>custom test runner</strong>.</li>
-              <li>Worked on <strong>IoT systems</strong>, fetching real-time sensor data and transmitting to cloud.</li>
-              <li>Integrated <strong>Subscription module</strong> for automated invoicing and billing.</li>
-            </ul>
+            <div class="timeline__achievements">
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div>
+                  <strong>Rapid Learning</strong> — Mastered Django from scratch, shipped production features
+                </div>
+              </div>
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <strong>IoT Integration</strong> — Real-time sensor data fetching & cloud transmission
+                </div>
+              </div>
+              <div class="timeline__achievement">
+                <div class="timeline__achievement-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <strong>Quality & Billing</strong> — Built custom test runner & subscription billing module
+                </div>
+              </div>
+            </div>
             <div class="timeline__tech">
               <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Celery</span><span>IoT</span>
             </div>
@@ -355,7 +416,10 @@
           <div class="timeline__content">
             <div class="timeline__meta">
               <span class="timeline__date">2017 — 2021</span>
-              <span class="timeline__location">Pune</span>
+              <span class="timeline__location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Pune
+              </span>
             </div>
             <h3 class="timeline__role">Bachelor of Engineering</h3>
             <h4 class="timeline__company">TSSM's Pd. Vasantdada Patil Institute of Technology</h4>
@@ -464,6 +528,52 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Technical roadmap tools</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CURRENTLY ═══════════════════ -->
+  <section id="currently" class="section currently">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">&lt;currently&gt;</span>
+        <h2 class="section__title">What I'm Up To</h2>
+        <div class="section__line"></div>
+      </div>
+      <div class="currently__grid">
+        <div class="currently__card bento-item" data-tilt>
+          <div class="currently__status">
+            <span class="currently__dot"></span>
+            <span>Active</span>
+          </div>
+          <h3 class="currently__title">P2P Overlay Network for IoT</h3>
+          <p class="currently__desc">Designing a peer-to-peer overlay network enabling remote access, terminal control & OTA updates for low-end IoT devices.</p>
+          <div class="currently__tags">
+            <span>NATS</span><span>Django</span><span>RabbitMQ</span>
+          </div>
+        </div>
+        <div class="currently__card bento-item" data-tilt>
+          <div class="currently__status">
+            <span class="currently__dot"></span>
+            <span>Active</span>
+          </div>
+          <h3 class="currently__title">Local AI Deployment</h3>
+          <p class="currently__desc">Experimenting with Ollama & Hugging Face models for domain-specific AI agents that run entirely on local hardware.</p>
+          <div class="currently__tags">
+            <span>Ollama</span><span>Qwen</span><span>VRAM Optimization</span>
+          </div>
+        </div>
+        <div class="currently__card bento-item" data-tilt>
+          <div class="currently__status currently__status--open">
+            <span class="currently__dot currently__dot--open"></span>
+            <span>Open To</span>
+          </div>
+          <h3 class="currently__title">New Opportunities</h3>
+          <p class="currently__desc">Looking for challenging backend roles, distributed systems work, or AI/ML infrastructure positions. Let's connect!</p>
+          <div class="currently__tags">
+            <span>Backend</span><span>Distributed Systems</span><span>AI Infra</span>
           </div>
         </div>
       </div>

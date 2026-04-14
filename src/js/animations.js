@@ -47,28 +47,52 @@ function revealOnScroll(selector, triggerSelector, fromVars, toVars, staggerVal 
 
 export function initAnimations() {
   // ── Hero entrance (no scroll trigger, plays on load) ──
-  const heroTl = gsap.timeline({ delay: 0.5 });
+  const heroTl = gsap.timeline({ delay: 0.3 });
 
   heroTl
     .from('.hero__terminal', {
-      y: 30,
+      y: -30,
       opacity: 0,
       duration: 0.8,
       ease: 'power3.out',
     })
-    .from('#hero-title .hero__title-line', {
-      y: 60,
+    .from('#hero-status', {
+      y: -20,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
+      duration: 0.6,
       ease: 'power3.out',
-    }, '-=0.3')
-    .from('#hero-subtitle', {
+    }, '-=0.2')
+    .from('#hero-greeting', {
       y: 30,
       opacity: 0,
       duration: 0.6,
       ease: 'power3.out',
+    }, '-=0.2')
+    .from('#hero-name .hero__name-line', {
+      y: 60,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: 'power3.out',
     }, '-=0.3')
+    .from('#hero-accent-line', {
+      scaleX: 0,
+      duration: 0.6,
+      ease: 'power3.out',
+    }, '-=0.2')
+    .from('#hero-roles', {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power3.out',
+    }, '-=0.2')
+    .from('#hero-stats .hero__stat, #hero-stats .hero__stat-divider', {
+      y: 15,
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.05,
+      ease: 'power3.out',
+    }, '-=0.2')
     .from('#hero-actions .btn', {
       y: 20,
       opacity: 0,
@@ -81,6 +105,9 @@ export function initAnimations() {
       duration: 0.8,
       ease: 'power2.out',
     }, '-=0.2');
+
+  // ── Role rotation ──
+  initRoleRotation();
 
   // ── Section headers ──
   gsap.utils.toArray('.section__header').forEach((header) => {
@@ -185,8 +212,108 @@ export function initAnimations() {
     0.08
   );
 
+  // ── Currently section cards ──
+  revealOnScroll(
+    '.currently__card', '.currently__grid',
+    { y: 40, opacity: 0, scale: 0.95 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' },
+    0.15
+  );
+
+  // ── Skill tag proficiency fills ──
+  gsap.utils.toArray('.skill-tag__fill').forEach((fill) => {
+    const tag = fill.parentElement;
+    const proficiency = tag.dataset.proficiency || '0';
+    ScrollTrigger.create({
+      trigger: tag,
+      start: 'top 95%',
+      once: true,
+      onEnter: () => {
+        gsap.to(fill, {
+          width: `${proficiency}%`,
+          duration: 1.2,
+          ease: 'power2.out',
+        });
+      },
+    });
+  });
+
+  // ── Parallax on gradient orbs ──
+  gsap.utils.toArray('.about::before, .skills::before, .projects::before').forEach(() => {
+    // Pseudo-elements can't be animated with GSAP directly,
+    // so we use scroll-linked transforms on sections
+  });
+
+  // ── Timeline achievement hover animation ──
+  gsap.utils.toArray('.timeline__achievement').forEach((item) => {
+    gsap.set(item, { opacity: 0.7 });
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 95%',
+      once: true,
+      onEnter: () => {
+        gsap.to(item, {
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+        });
+      },
+    });
+  });
+
+  // ── Hero name gradient animation ──
+  const heroAccent = document.querySelector('.hero__name-line--accent');
+  if (heroAccent) {
+    heroAccent.classList.add('text-gradient-animated');
+  }
+
   // Force refresh so already-visible sections trigger immediately
   ScrollTrigger.refresh(true);
+}
+
+/**
+ * initRoleRotation — Cycles through role text in the hero section
+ * Uses a clip-path reveal animation for smooth text transitions.
+ */
+function initRoleRotation() {
+  const roleEl = document.getElementById('hero-role');
+  if (!roleEl) return;
+
+  const roles = [
+    'Scalable Backend Systems',
+    'Distributed Data Pipelines',
+    'Real-time IoT Platforms',
+    'Local AI Infrastructure',
+    'Microservice Architectures',
+    'Docker Swarm Clusters',
+  ];
+
+  let currentIdx = 0;
+
+  function rotateRole() {
+    const tl = gsap.timeline();
+
+    tl.to(roleEl, {
+      y: -20,
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.in',
+      onComplete: () => {
+        currentIdx = (currentIdx + 1) % roles.length;
+        roleEl.textContent = roles[currentIdx];
+      },
+    })
+    .set(roleEl, { y: 20 })
+    .to(roleEl, {
+      y: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: 'power3.out',
+    });
+  }
+
+  // Start rotating after initial hero animation completes
+  setInterval(rotateRole, 3000);
 }
 
 /**

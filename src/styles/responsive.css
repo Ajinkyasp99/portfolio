@@ -32,17 +32,40 @@
   .projects__grid .project-card:last-child {
     grid-column: span 2;
   }
+
+  .currently__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .currently__grid .currently__card:last-child {
+    grid-column: span 2;
+  }
 }
 
 /* ── Mobile large: 768px ── */
 @media (max-width: 768px) {
   .hero__terminal {
-    min-width: auto;
     max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .hero__title {
+  .terminal__body {
+    padding: var(--space-md);
+    font-size: var(--fs-xs);
+  }
+
+  .hero__name {
     font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero__role-wrapper {
+    font-size: var(--fs-md);
+  }
+
+  .hero__quick-stats {
+    gap: var(--space-xs);
+    font-size: var(--fs-xs);
   }
 
   .hero__actions {
@@ -54,6 +77,26 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+
+  .hero__shape--ring {
+    width: 80px;
+    height: 80px;
+    right: 5%;
+  }
+
+  .hero__shape--plus {
+    left: 5%;
+  }
+
+  .hero__orb--1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero__orb--2 {
+    width: 250px;
+    height: 250px;
   }
 
   .about__grid {
@@ -86,6 +129,14 @@
   }
 
   .projects__grid .project-card:last-child {
+    grid-column: span 1;
+  }
+
+  .currently__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .currently__grid .currently__card:last-child {
     grid-column: span 1;
   }
 
@@ -124,17 +175,22 @@
     padding: 0 1.25rem;
   }
 
-  .hero__terminal {
-    min-width: auto;
-    margin-bottom: var(--space-xl);
+  .hero__status {
+    font-size: var(--fs-xs);
+    padding: 4px 14px;
   }
 
-  .terminal__body {
-    padding: 14px 16px;
+  .hero__name {
+    line-height: 1.1;
   }
 
-  .terminal__line {
-    font-size: 0.8rem;
+  .hero__accent-line {
+    width: 60px;
+  }
+
+  .hero__role-wrapper {
+    flex-direction: column;
+    gap: var(--space-xs);
   }
 
   .stat-grid {
@@ -184,12 +240,12 @@
     --container-padding: 1rem;
   }
 
-  .hero__title {
+  .hero__name {
     font-size: 2rem;
   }
 
-  .terminal__line {
-    font-size: 0.7rem;
+  .hero__greeting {
+    font-size: var(--fs-lg);
   }
 
   .about__card {
@@ -206,7 +262,7 @@
     scroll-behavior: auto !important;
   }
 
-  .terminal__cursor {
+  .hero__status-dot {
     animation: none;
   }
 }
